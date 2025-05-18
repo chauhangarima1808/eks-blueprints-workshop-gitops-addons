@@ -1228,9 +1228,9 @@ addons:
     enabled: false
     releaseName: eks-upgrade-insights-demo
     namespace: 'argocd'
-    path: '{{.metadata.annotations.addons_repo_basepath}}charts/eks-upgrade-insights-demo'
-    repoUrl: '{{.metadata.annotations.addons_repo_url}}'
-    targetRevision: '{{.metadata.annotations.addons_repo_revision}}'
+    path: 'charts/eks-upgrade-insights-demo'
+    repoUrl: 'https://github.com/chauhangarima1808/eks-blueprints-workshop-gitops-addons'
+    targetRevision: 'HEAD'
 
   ack_secretsmanager:
     enabled: false
