@@ -15,7 +15,7 @@ addons:
   cni_metrics_helper:
     enabled: false
   cw_prometheus:
-    enabled: false
+    enabled: true
   grafana_operator:
     enabled: false
   argocd:
