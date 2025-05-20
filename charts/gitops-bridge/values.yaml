@@ -1216,8 +1216,8 @@ addons:
     enabled: false
     namespace: '{{ default "amazon-cloudwatch" (index .metadata.annotations "cw_prometheus_namespace")}}'
     path: '{{.metadata.annotations.addons_repo_basepath}}charts/cw-prometheus'
-    repoUrl: '{{.metadata.annotations.addons_repo_url}}'
-    targetRevision: '{{.metadata.annotations.addons_repo_revision}}'
+    repoUrl: 'https://github.com/chauhangarima1808/eks-blueprints-workshop-gitops-addons'
+    targetRevision: 'HEAD'
     selector:
       matchExpressions:
         - key: enable_cw_prometheus
