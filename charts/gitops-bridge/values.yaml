@@ -21,11 +21,11 @@ stackPath: 'addons-{{- $tenant := default dict (index .tenants .metadata.labels.
           {{- end -}}.yaml'
 stackPathConfigPrefix: 'k8s-v'
 stackPathConfig: 'addons-config.yaml'
-repoURLGit: "https://github.com/chauhangarima1808/eks-blueprints-workshop-gitops-addons"
+repoURLGit: "'{{.metadata.annotations.addons_repo_url}}'"
 repoURLGitRevision: HEAD
 repoURLGitBasePath: "stacks/"
-repoURLValues: "https://github.com/chauhangarima1808/eks-blueprints-workshop-gitops-addons"
-repoURLValuesRevision: "HEAD"
+repoURLValues:  "'{{.metadata.annotations.addons_repo_url}}'"
+repoURLValuesRevision: "'{{.metadata.annotations.addons_repo_revision}}'"
 repoURLValuesBasePath: ""
 project: default
 namespace: argocd
@@ -1216,8 +1216,8 @@ addons:
     enabled: false
     namespace: '{{ default "amazon-cloudwatch" (index .metadata.annotations "cw_prometheus_namespace")}}'
     path: '{{.metadata.annotations.addons_repo_basepath}}charts/cw-prometheus'
-    repoUrl: 'https://github.com/chauhangarima1808/eks-blueprints-workshop-gitops-addons'
-    targetRevision: 'HEAD'
+    repoUrl: '{{.metadata.annotations.addons_repo_url}}'
+    targetRevision: '{{.metadata.annotations.addons_repo_revision}}'
     selector:
       matchExpressions:
         - key: enable_cw_prometheus
@@ -1229,8 +1229,8 @@ addons:
     releaseName: eks-upgrade-insights-demo
     namespace: 'argocd'
     path: 'charts/eks-upgrade-insights-demo'
-    repoUrl: 'https://github.com/chauhangarima1808/eks-blueprints-workshop-gitops-addons'
-    targetRevision: 'HEAD'
+    repoUrl: '{{.metadata.annotations.addons_repo_url}}'
+    targetRevision: '{{.metadata.annotations.addons_repo_revision}}'
 
   ack_secretsmanager:
     enabled: false
